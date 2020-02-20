@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs")
 
 var app = express();
 var PORT = 3000;
@@ -23,10 +24,22 @@ app.get("/index", function(req, res) {
 // GET /api/notes - Should read the db.json file and return all saved notes as JSON.
 
 app.get('/api/notes', function(req, res) {
-  res.json();
+  res.json(db.json);
 });
 
 // POST /api/notes - Should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client.
+
+
+app.post('/api/notes', function(req, res) {
+  
+  if (db.json.length < {i}) {
+    db.json.push(req.body);
+    res.json(true);
+  } else {
+    notes.push(req.body);
+    res.json(false);
+  }
+});
 
 
 
